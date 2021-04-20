@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class TileVaga extends StatelessWidget {
   
-  final String nome;
+  final String id;
   final String placa;
   final String horario;
   final bool ocupada;
+  final Function onPressed;
 
-  TileVaga(this.nome, this.placa, this.horario, this.ocupada);
-
+  TileVaga({this.id, this.placa, this.horario, this.ocupada, this.onPressed});
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,12 +37,12 @@ class TileVaga extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Vaga: $nome', 
+                Text('Vaga $id', 
                   style: TextStyle(
                     fontSize: 20,
                   ),
                 ),
-                Text('Placa do veículo: ${ocupada ? "-" : placa}'),
+                Text('Placa do veículo: ${ocupada ? placa : "-"}'),
                 Text('Horário de ${ocupada ? "Entrada" : "Saída"}: $horario'),
               ]
             ),
@@ -51,7 +52,9 @@ class TileVaga extends StatelessWidget {
             child: IconButton(
               icon: ocupada ? Icon(Icons.logout) : Icon(Icons.login),
               tooltip: ocupada ? 'Remover caminhão' : 'Adicionar caminhão',
-              onPressed: (){},
+              onPressed: () {
+                onPressed(id);
+              },
 
             ),
           ),
