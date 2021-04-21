@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Widget para cada card de vaga existente.
 class TileVaga extends StatelessWidget {
   
   final String id;
@@ -15,7 +16,6 @@ class TileVaga extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
-        // color: Colors.black12,
         gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -65,7 +65,6 @@ class TileVaga extends StatelessWidget {
               onPressed: () {
                 onPressed(id);
               },
-
             ),
           ),
         ],

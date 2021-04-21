@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   initState(){
+    // Ao se abrir o app busca os dados salvos no .json ou busca os dados padrões.
     super.initState();
 
     archive.readData()
@@ -34,14 +35,16 @@ class _HomePageState extends State<HomePage> {
           vagas = json.decode(data);
         });
       })
-      .catchError(() {
+      .catchError((Object error) {
         setState(() {
           String encodedJson = archive.readDefaultData();
+
           vagas = json.decode(encodedJson);
         });
       });
   }
 
+  // Função para retornar o horário formatado.
   String getFormatedTime() {
     DateTime dt = DateTime.now();
     DateFormat newFormat = DateFormat("HH:mm");
@@ -49,6 +52,7 @@ class _HomePageState extends State<HomePage> {
     return updatedDt;
   }
 
+  // Função acionada sempre que o botão de cada tile é acionada.
   void handleChangeVaga(String id) {
     setState(() {
       List index = vagas.where((vaga) => vaga['id'] == id).toList();
@@ -66,12 +70,14 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  // Ao cancelar o dialog existente.
   void _cancelAddVeiculo() {
     setState(() {
       showDialog = false;
     });
   }
 
+  // Ao confirmar o dialog existente. Atualiza os dados da vaga selecionada.
   void _addVeiculo() {
     setState(() {
       List index =

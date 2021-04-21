@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// Widget de AppBar com tamanho customizado
 class AppBarWidget extends PreferredSize {
   AppBarWidget()
     : super(
