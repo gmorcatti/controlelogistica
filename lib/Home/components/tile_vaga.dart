@@ -15,9 +15,17 @@ class TileVaga extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: Colors.black12,
+        // color: Colors.black12,
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.black26,
+              Colors.black12,
+            ],
+          ),
       ),
-      height: 70,
+      height: 80.0,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       padding: EdgeInsets.all(5),
       child: Row(
@@ -42,7 +50,9 @@ class TileVaga extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-                Text('Placa do veículo: ${ocupada ? placa : "-"}'),
+                SizedBox(height: 3.0,),
+                Text('${ocupada ? "Placa do Veículo" : "Último Veículo"}: $placa'),
+                SizedBox(height: 3.0,),
                 Text('Horário de ${ocupada ? "Entrada" : "Saída"}: $horario'),
               ]
             ),

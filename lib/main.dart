@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Controle de Garagem',
       theme: ThemeData(
         primarySwatch: Colors.amber,
+        fontFamily: 'Antonio'
       ),
       home: HomePage(),
       debugShowCheckedModeBanner: false,
